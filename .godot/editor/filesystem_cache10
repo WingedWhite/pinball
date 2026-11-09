@@ -1,0 +1,12 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1792497118
+ball.gd::GDScript::7546740668133266088::1792442738::0::1::::<>RigidBody2D<><>0<>0<><>::
+Ball.png::CompressedTexture2D::8813026066354642744::1792441907::1792441907::1::::<><><>0<>0<>510481cee62119db7a3067d8d50360f8<>res://.godot/imported/Ball.png-3e5e22496e5c9e9b08e902070a717137.ctex::
+Ball.tscn::PackedScene::4515865832415873841::1792442506::0::1::::<><><>0<>0<><>::uid://dfrxyl68jgp3u::::res://ball.gd<>uid://dxtdis8l85dw7::::res://Ball.png<>uid://d7vmkjdf6tn7::::res://Ball_Glint.png
+Ball_Glint.png::CompressedTexture2D::277923644699934478::1792441907::1792441907::1::::<><><>0<>0<>bdcdc130b1f4d69a6ad188e8a7309267<>res://.godot/imported/Ball_Glint.png-3f55468ed99ebc116863c7432f5d8825.ctex::
+block.gd::GDScript::1718187889465874159::1792443054::0::1::::<>StaticBody2D<><>0<>0<><>::
+Block.tscn::PackedScene::854396991974291903::1792444974::0::1::::<><><>0<>0<><>::
+board.gd::GDScript::2756287783169827629::1792446156::0::1::::<>Node2D<><>0<>0<><>::
+icon.svg::CompressedTexture2D::596048249503300637::1792441302::1792441308::1::::<><><>0<>0<>a5d14f259a612077a3c666d1a7126226<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Testing Area.tscn::PackedScene::2881692047415917100::1792446156::0::1::::<><><>0<>0<><>::uid://b5lrwd7uxyxiv::::res://Ball.tscn<>uid://bfjfwlujgkot6::::res://board.gd<>uid://mf418o12qb3t::::res://Block.tscn
+testing_area.gd::GDScript::1053817335517925660::1792445442::0::1::::<>Node2D<><>0<>0<><>::

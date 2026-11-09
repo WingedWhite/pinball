@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://bhb6bulkn7ywq"]
+
+[ext_resource type="PackedScene" uid="uid://b5lrwd7uxyxiv" path="res://Ball.tscn" id="1_83uop"]
+[ext_resource type="Script" uid="uid://bfjfwlujgkot6" path="res://board.gd" id="2_3dsfn"]
+[ext_resource type="PackedScene" uid="uid://mf418o12qb3t" path="res://Block.tscn" id="2_i6pb5"]
+[ext_resource type="PackedScene" uid="uid://4bnhwp2ekoga" path="res://Flipper.tscn" id="4_ev5ww"]
+[ext_resource type="Script" uid="uid://by68g2slb1y1j" path="res://camera.gd" id="5_27i5n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ev5ww"]
+bounce = 0.1
+
+[sub_resource type="Animation" id="Animation_3dsfn"]
+resource_name = "LeftFlip"
+length = 0.06667000347711147
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.43633232, -0.4363323129985824]
+}
+
+[sub_resource type="Animation" id="Animation_27i5n"]
+resource_name = "LeftUnflip"
+length = 0.06667000347711147
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.43633232, 0.4363323129985824]
+}
+
+[sub_resource type="Animation" id="Animation_ev5ww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.43633232]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ev5ww"]
+_data = {
+&"LeftFlip": SubResource("Animation_3dsfn"),
+&"LeftUnflip": SubResource("Animation_27i5n"),
+&"RESET": SubResource("Animation_ev5ww")
+}
+
+[sub_resource type="Animation" id="Animation_kiuel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.705260340591211]
+}
+
+[sub_resource type="Animation" id="Animation_mhaod"]
+resource_name = "RightFlip"
+length = 0.03333666840530932
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.03333667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.7052603, 3.576965, 3.577925]
+}
+
+[sub_resource type="Animation" id="Animation_ojnbj"]
+resource_name = "RightUnflip"
+length = 0.03333666840530932
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.5779249665883754, 2.705260340591211]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiuel"]
+_data = {
+&"RESET": SubResource("Animation_kiuel"),
+&"RightFlip": SubResource("Animation_mhaod"),
+&"RightUnflip": SubResource("Animation_ojnbj")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1803845315]
+
+[node name="Board" type="Node2D" parent="." unique_id=596312935]
+script = ExtResource("2_3dsfn")
+
+[node name="Ball" parent="Board" unique_id=93993099 instance=ExtResource("1_83uop")]
+position = Vector2(-314, 16)
+collision_layer = 129
+collision_mask = 129
+physics_material_override = SubResource("PhysicsMaterial_ev5ww")
+gravity_scale = 0.6
+
+[node name="BorderBox" type="Node2D" parent="Board" unique_id=810507653]
+
+[node name="TopWall" parent="Board/BorderBox" unique_id=1679603669 instance=ExtResource("2_i6pb5")]
+position = Vector2(0, -840)
+scale = Vector2(8.209999, 0.2)
+
+[node name="LeftWall" parent="Board/BorderBox" unique_id=1129868805 instance=ExtResource("2_i6pb5")]
+position = Vector2(-400, -100)
+scale = Vector2(0.2, 15)
+
+[node name="RightWall" parent="Board/BorderBox" unique_id=48313409 instance=ExtResource("2_i6pb5")]
+position = Vector2(400, -100)
+scale = Vector2(0.2, 15)
+
+[node name="FlipperWallLeft" parent="Board" unique_id=518295514 instance=ExtResource("2_i6pb5")]
+position = Vector2(-250, 500)
+rotation = 0.55787075
+scale = Vector2(3.5, 0.25)
+
+[node name="FlipperWallRight" parent="Board" unique_id=478075121 instance=ExtResource("2_i6pb5")]
+position = Vector2(250, 500)
+rotation = -0.55850536
+scale = Vector2(3.5, 0.25)
+
+[node name="FlipperLeft" parent="Board" unique_id=164787 instance=ExtResource("4_ev5ww")]
+position = Vector2(-100, 590)
+rotation = 0.43633232
+scale = Vector2(0.2, 0.2)
+
+[node name="LeftFlipperAP" type="AnimationPlayer" parent="Board/FlipperLeft" unique_id=737927742]
+libraries/ = SubResource("AnimationLibrary_ev5ww")
+
+[node name="FlipperRight" parent="Board" unique_id=1965103619 instance=ExtResource("4_ev5ww")]
+position = Vector2(100, 590)
+rotation = 2.7052603
+scale = Vector2(0.2, 0.2)
+
+[node name="RightFlipperAP" type="AnimationPlayer" parent="Board/FlipperRight" unique_id=141483276]
+libraries/ = SubResource("AnimationLibrary_kiuel")
+
+[node name="Camera" type="Camera2D" parent="Board" unique_id=708744279 node_paths=PackedStringArray("Ball")]
+zoom = Vector2(1.455, 1.455)
+limit_left = 0
+limit_top = -840
+limit_right = 0
+limit_bottom = 646
+limit_smoothed = true
+script = ExtResource("5_27i5n")
+Ball = NodePath("../Ball")

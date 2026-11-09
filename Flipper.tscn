@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://4bnhwp2ekoga"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sq4jm"]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tref4"]
+size = Vector2(500, 100)
+
+[node name="Flipper" type="AnimatableBody2D" unique_id=164787]
+physics_material_override = SubResource("PhysicsMaterial_sq4jm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1355320878]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 450.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830989231]
+position = Vector2(200, 0)
+shape = SubResource("RectangleShape2D_tref4")
